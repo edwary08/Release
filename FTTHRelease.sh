@@ -3,6 +3,8 @@
 #Need to create the KEY_FOLDER(GW7557LG_RSA_Keys) and copy the private and public key to that
 
 function setoption() {
+####################Personal Settings####################
+SSH_ACCOUNT="ed_lee"
 ####################Read setting from config file####################
 PWD=`pwd`
 filename="${PWD}/FTTHRelease.cfg"
@@ -13,11 +15,10 @@ do
     if [ $name == "account" ]
     then
         echo "The account is ${value//\"/}"
+        SSH_ACCOUNT=${value//\"/}
     fi
     echo "Content of $name is ${value//\"/}"
 done < ${filename}
-####################Personal Settings####################
-SSH_ACCOUNT="ed_lee"
 
 ####################parameters for source building code####################
 #OPTIONS for build arm code
