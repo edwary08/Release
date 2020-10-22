@@ -3,6 +3,19 @@
 #Need to create the KEY_FOLDER(GW7557LG_RSA_Keys) and copy the private and public key to that
 
 function setoption() {
+####################Read setting from config file####################
+PWD=`pwd`
+filename="${PWD}/FTTHRelease.cfg"
+IFS="="
+echo "Read config file, $filename"
+while read -r name value 
+do
+    if [ $name == "account" ]
+    then
+        echo "The account is ${value//\"/}"
+    fi
+    echo "Content of $name is ${value//\"/}"
+done < ${filename}
 ####################Personal Settings####################
 SSH_ACCOUNT="ed_lee"
 
